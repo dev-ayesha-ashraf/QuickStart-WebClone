@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.sitename{
+  font-family: "Nunito", sans-serif;
+}
+.mobile-nav-popup a{
+  font-family: "Inter",  sans-serif
+}
