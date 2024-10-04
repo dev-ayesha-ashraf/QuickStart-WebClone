@@ -26,9 +26,9 @@ const Header = () => {
   };
 
   return (
-    <header id="header" className="py-8 header flex items-center fixed top-0 w-full z-50 bg-white shadow">
-      <div className="w-full container-fluid xl:container relative flex items-center justify-around">
-        <a href="index.html" className="logo flex items-center">
+    <header id="header" className="py-8 px-6 header flex items-center fixed top-0 w-full z-50">
+      <div className="w-full container-fluid xl:container relative flex items-center m-auto justify-around">
+        <a href="index.html" className="logo flex items-center mr-auto">
           <img src={logo} className='ml-[8px] h-[36px]' alt="Logo" />
           <h1 className="font-nunito sitename text-3xl font-bold ml-2 text-[#3d4348]">QuickStart</h1>
         </a>
@@ -86,7 +86,7 @@ const Header = () => {
         </nav>
 
         <div>
-          <button className='bg-[#388da8] text-white mr-3.5 px-[25px] py-[8px] rounded-[50px] text-sm hover:bg-[#4ea2bc]'>Get Started</button>
+          <button className='bg-[#388da8] text-white ml-3.5 px-[25px] py-[8px] rounded-[50px] text-sm hover:bg-[#4ea2bc]'>Get Started</button>
         </div>
 
         <i onClick={toggleNav} className="mobile-nav-toggle d-xl-none bi bi-list lg:hidden cursor-pointer"></i>
