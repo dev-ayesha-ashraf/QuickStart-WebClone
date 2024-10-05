@@ -52,7 +52,7 @@ const Hero = () => {
           >
             <a
               href="#about"
-              className="px-7 py-2 font-nunito bg-[#388da8] text-[#ffff] font-medium text-[15px] tracking-wider inline-block rounded-full transition-all duration-500 shadow-[0_8px_28px_rgba(0,0,0,0.1)] hover:bg-[var(--accent-color)]"
+              className="px-7 py-2 font-nunito bg-[#388da8] text-[#ffff] font-medium text-[15px] tracking-wider inline-block rounded-full transition-all duration-500 shadow-[0_8px_28px_rgba(0,0,0,0.1)] hover:bg-[#4ea2bc]"
             >
               Get Started
             </a>
@@ -61,7 +61,7 @@ const Hero = () => {
               className="glightbox flex items-center text-gray-700 hover:text-primary"
             >
               <BiPlayCircle className="text-[32px] mr-2 text-[#388da8]" />
-              <span className='watch text-[##3d4348] text-base font-semibold'>Watch Video</span>
+              <span className='watch text-[##3d4348] text-base font-semibold hover:text-[#388da8]'>Watch Video</span>
             </a>
           </div>
           <img
