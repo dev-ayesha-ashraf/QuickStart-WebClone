@@ -7,18 +7,15 @@ const Header = () => {
   const [isDeepDropdownOpen, setIsDeepDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleNav = () => {
-    setIsNavVisible(!isNavVisible);
-  };
-
+  const toggleNav = () => setIsNavVisible(prev => !prev);
   const handleDropdownClick = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsDropdownOpen(prev => !prev);
     setIsDeepDropdownOpen(false);
   };
 
   const handleDeepDropdownClick = (event) => {
     event.stopPropagation();
-    setIsDeepDropdownOpen(!isDeepDropdownOpen);
+    setIsDeepDropdownOpen(prev => !prev);
   };
 
   const closeDropdowns = () => {
@@ -27,55 +24,31 @@ const Header = () => {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <header
       id="header"
-      className={`pt-[20px] pb-[20px] header flex items-center fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}
+      className={`pt-5 pb-5 flex items-center fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'} lg:justify-center` }
     >
-      <div className="w-full container-fluid xl:container relative flex items-center m-auto justify-around mx-[65px]sm:mx-0">
+      <div className="w-full container-fluid xl:container relative flex items-center m-auto justify-around mx-16 sm:mx-0 lg:w-[87vw]">
         <a href="index.html" className="logo flex items-center mr-auto">
-          <img src={logo} className="ml-[8px] h-[36px]" alt="Logo" />
+          <img src={logo} className="ml-2 h-9" alt="Logo" />
           <h1 className="font-nunito sitename text-3xl font-bold ml-2 text-[#3d4348]">QuickStart</h1>
         </a>
         <div className='flex'>
           <nav id="navmenu" className={`navmenu hidden lg:flex ${isNavVisible ? 'flex' : 'hidden'}`}>
             <ul className="flex justify-center align-center text-center">
-            <li className="cursor-pointer">
-                  <a href="#hero" className="text-[#313336] py-[10px] px-[20px] font-normal text-[17px] hover:text-[#388da8]">
-                    Home
+              {['Home', 'About', 'Features', 'Services', 'Pricing', 'Contact'].map(item => (
+                <li key={item} className="cursor-pointer">
+                  <a href={`#${item.toLowerCase()}`} className="text-[#313336] py-2 px-5 font-normal text-[17px] hover:text-[#388da8]">
+                    {item}
                   </a>
                 </li>
-                <li className="hover:text-[#388da8] cursor-pointer">
-                  <a href="#about" className="hover:text-[#388da8] text-[#313336] py-[10px] px-[20px] font-normal text-[17px] hover:text-[#388da8]">
-                    About
-                  </a>
-                </li>
-                <li className="cursor-pointer">
-                  <a href="#features" className="text-[#313336] py-[10px] px-[20px] font-normal text-[17px] hover:text-[#388da8]">
-                    Features
-                  </a>
-                </li>
-                <li className="cursor-pointer">
-                  <a href="#services" className="text-[#313336] py-[10px] px-[20px] font-normal text-[17px] hover:text-[#388da8]">
-                    Services
-                  </a>
-                </li>
-                <li className="cursor-pointer">
-                  <a href="#pricing" className="text-[#313336] py-[10px] px-[20px] font-normal text-[17px] hover:text-[#388da8]">
-                    Pricing
-                  </a>
-                </li>
-              
+              ))}
               <li className="relative group">
                 <a href="#" className="text-gray-700 hover:text-[#388da8] flex items-center" onClick={handleDropdownClick}>
                   Dropdown <i className="bi bi-chevron-down ml-1"></i>
@@ -93,52 +66,31 @@ const Header = () => {
                       </a>
                       {isDeepDropdownOpen && (
                         <ul className="absolute left-full top-0 bg-white shadow-lg py-2 space-y-1 w-full max-h-40 overflow-y-auto">
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
-                              Deep Dropdown 1
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
-                              Deep Dropdown 2
-                            </a>
-                          </li>    <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
-                              Deep Dropdown 3
-                            </a>
-                          </li>    <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
-                              Deep Dropdown 4
-                            </a>
-                          </li>
+                          {['Deep Dropdown 1', 'Deep Dropdown 2', 'Deep Dropdown 3', 'Deep Dropdown 4'].map(subItem => (
+                            <li key={subItem}>
+                              <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
+                                {subItem}
+                              </a>
+                            </li>
+                          ))}
                         </ul>
                       )}
- <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
-                        Dropdown 3
-                      </a>
                     </li>
-                    <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
-                        Dropdown 4
-                      </a>
-                    </li>
-                    </li>
-                    
-        
+                    {['Dropdown 2', 'Dropdown 3', 'Dropdown 4'].map(subItem => (
+                      <li key={subItem}>
+                        <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
+                          {subItem}
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 )}
               </li>
-              <li className="cursor-pointer">
-                  <a href="#contact" className="text-[#313336] py-[10px] px-[20px] font-normal text-[17px] hover:text-[#388da8]">
-                    Contact
-                  </a>
-                </li>
             </ul>
           </nav>
 
           <div>
-            <button className="mr-3.5 bg-[#388da8] text-white ml-3.5 px-[25px] py-[8px] rounded-[50px] text-sm hover:bg-[#4ea2bc]">
+            <button className="mr-3.5 bg-[#388da8] text-white ml-3.5 px-6 py-2 rounded-[50px] text-sm hover:bg-[#4ea2bc]">
               Get Started
             </button>
           </div>
@@ -153,99 +105,31 @@ const Header = () => {
             </button>
             <nav className="flex flex-col">
               <ul className="space-y-4 bg-white h-[85vh] w-[90vw] m-auto flex flex-col py-[10px] rounded-md overflow-y-auto">
-                <li className="hover:text-[#388da8] cursor-pointer">
-                  <a href="#hero" className="text-primary py-[10px] px-[20px] font-medium text-[17px]">
-                    Home
-                  </a>
-                </li>
-                <li className="hover:text-[#388da8] cursor-pointer">
-                  <a href="#about" className="text-primary py-[10px] px-[20px] font-medium text-[17px]">
-                    About
-                  </a>
-                </li>
-                <li className="hover:text-[#388da8] cursor-pointer">
-                  <a href="#features" className="text-primary py-[10px] px-[20px] font-medium text-[17px]">
-                    Features
-                  </a>
-                </li>
-                <li className="hover:text-[#388da8] cursor-pointer">
-                  <a href="#services" className="text-primary py-[10px] px-[20px] font-medium text-[17px]">
-                    Services
-                  </a>
-                </li>
-                <li className="hover:text-[#388da8] cursor-pointer">
-                  <a href="#pricing" className="text-primary py-[10px] px-[20px] font-medium text-[17px]">
-                    Pricing
-                  </a>
-                </li>
-                
-                <li className="hover:text-[#388da8] cursor-pointer">
-                  <a href="#contact" className="text-primary py-[10px] px-[20px] font-medium text-[17px]">
-                    Contact
-                  </a>
-                </li>
+                {['hero', 'About', 'Features', 'Services', 'Pricing', 'Contact'].map(item => (
+                  <li key={item} className="hover:text-[#388da8] cursor-pointer">
+                    <a href={`#${item.toLowerCase()}`} className="text-primary py-2 px-5 font-medium text-[17px]">
+                      {item}
+                    </a>
+                  </li>
+                ))}
                 {/* Mobile Dropdown */}
                 <li className="relative hover:text-[#388da8] cursor-pointer">
                   <a
                     href="#"
-                    className="text-primary py-[10px] px-[20px] font-medium text-[17px] flex items-center"
+                    className="text-primary py-2 px-5 font-medium text-[17px] flex items-center"
                     onClick={handleDropdownClick}
                   >
                     Dropdown <i className="bi bi-chevron-down ml-1"></i>
                   </a>
                   {isDropdownOpen && (
                     <ul className="absolute left-0 top-full dropdownUl shadow-lg py-2 space-y-1 w-full overflow-y-auto max-h-40">
-                      <li>
-                        <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
-                          Dropdown 1
-                        </a>
-                      </li>
-                      <li className="relative group">
-                        <a
-                          href="#"
-                          className="block px-4 py-2 hover:bg-gray-100 flex items-center hover:text-[#388da8]"
-                          onClick={handleDeepDropdownClick}
-                        >
-                          Deep Dropdown <i className="bi bi-chevron-down ml-1"></i>
-                        </a>
-                        {isDeepDropdownOpen && (
-                          <ul className="deepDropdown absolute left-0 top-full bg-gray-200 shadow-lg py-2 space-y-1 w-full overflow-y-auto max-h-40">
-                            <li>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-300 hover:text-[#388da8]" onClick={closeDropdowns}>
-                                Deep Dropdown 1
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-300 hover:text-[#388da8]" onClick={closeDropdowns}>
-                                Deep Dropdown 2
-                              </a>
-                            </li> <li>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-300 hover:text-[#388da8]" onClick={closeDropdowns}>
-                                Deep Dropdown 3
-                              </a>
-                            </li> <li>
-                              <a href="#" className="block px-4 py-2 hover:bg-gray-300 hover:text-[#388da8]" onClick={closeDropdowns}>
-                                Deep Dropdown 4
-                              </a>
-                            </li>
-                          </ul>
-                        )}
-                      </li>
-                      <li>
-                        <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
-                          Dropdown 2
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
-                          Dropdown 3
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
-                          Dropdown 4
-                        </a>
-                      </li>
+                      {['Dropdown 1', 'Dropdown 2', 'Dropdown 3'].map(subItem => (
+                        <li key={subItem}>
+                          <a href="#" className="block px-4 py-2 hover:bg-gray-100 hover:text-[#388da8]" onClick={closeDropdowns}>
+                            {subItem}
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   )}
                 </li>
@@ -253,7 +137,6 @@ const Header = () => {
             </nav>
           </div>
         )}
-
       </div>
     </header>
   );

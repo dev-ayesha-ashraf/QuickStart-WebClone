@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import SectionTitle from './SectionTitle'; // Adjust the import based on your folder structure
+import SectionTitle from './SectionTitle'; 
 
 const FAQSection = () => {
-  // JSON data for FAQs
+ 
   const faqData = [
     {
       question: "Non consectetur a erat nam at lectus urna duis?",
@@ -36,18 +36,17 @@ const FAQSection = () => {
     },
   ];
 
-  // State to manage active FAQ
+
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Function to handle FAQ toggle
   const handleToggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section id="faq" className="faq section py-10 bg-gray-50">
-      {/* Section Title */}
-      <SectionTitle title="Frequently Asked Questions"/>
+    <section id="faq" className="faq section bg-gray-50">
+   
+      <SectionTitle title="Frequently Asked Questions" />
       <div className="container mx-auto">
         <div className="mx-auto min-[800px]:w-[70vw]">
           <div className="faq-container space-y-4">

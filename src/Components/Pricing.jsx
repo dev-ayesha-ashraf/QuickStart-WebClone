@@ -52,7 +52,7 @@ const Pricing = () => {
 
   return (
     <section id="pricing" className="pricing section py-16">
-      {/* Section Title */}
+   
       <div className="container mx-auto text-center">
         <SectionTitle title="Pricing" subtitle="Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit" />
       </div>

@@ -1,4 +1,4 @@
-import SectionTitle from './SectionTitle'; // Importing your existing SectionTitle component
+import SectionTitle from './SectionTitle'; 
 
 const Services = () => {
   const services = [
@@ -8,7 +8,7 @@ const Services = () => {
       icon: 'bi bi-bar-chart-line',
       iconColor: 'text-cyan-500',
       borderColor: 'border-cyan-500',
-      bgColor: '#0DCAF01A' // Add bgColor
+      bgColor: '#0DCAF01A' 
     },
     {
       title: 'Eosle Commodi',
@@ -16,7 +16,7 @@ const Services = () => {
       icon: 'bi bi-broadcast',
       iconColor: 'text-orange-500',
       borderColor: 'border-orange-500',
-      bgColor: '#FD7E141A' // Add bgColor
+      bgColor: '#FD7E141A' 
     },
     {
       title: 'Ledo Markt',
@@ -24,7 +24,7 @@ const Services = () => {
       icon: 'bi bi-easel',
       iconColor: 'text-teal-500',
       borderColor: 'border-teal-500',
-      bgColor: '#20C9971A' // Add bgColor
+      bgColor: '#20C9971A' 
     },
     {
       title: 'Asperiores Commodi',
@@ -32,7 +32,7 @@ const Services = () => {
       icon: 'bi bi-bounding-box-circles',
       iconColor: 'text-red-500',
       borderColor: 'border-red-500',
-      bgColor: '#DF15041A' // Add bgColor
+      bgColor: '#DF15041A'
     },
     {
       title: 'Velit Doloremque',
@@ -40,7 +40,7 @@ const Services = () => {
       icon: 'bi bi-calendar4-week',
       iconColor: 'text-indigo-500',
       borderColor: 'border-indigo-500',
-      bgColor: '#6610F21A' // Add bgColor
+      bgColor: '#6610F21A'
     },
     {
       title: 'Dolori Architecto',
@@ -48,14 +48,14 @@ const Services = () => {
       icon: 'bi bi-chat-square-text',
       iconColor: 'text-pink-500',
       borderColor: 'border-pink-500',
-      bgColor: '#F3268C1A' // Add bgColor
+      bgColor: '#F3268C1A' 
     },
   ];
 
   return (
     <section id="services" className="services section bg-[#f8fbfc] py-16 m-auto">
       <div className="min-[800px]:w-[87vw] m-auto">
-        {/* Section Title */}
+   
         <div className="container mx-auto">
           <SectionTitle
             title="Services"
@@ -63,7 +63,7 @@ const Services = () => {
           />
         </div>
 
-        {/* Services List */}
+     
         <div className="container mx-auto mt-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {services.map((service, index) => (
@@ -75,7 +75,7 @@ const Services = () => {
               >
                 <i
                   className={`${service.icon} ${service.iconColor} text-4xl mb-4 border ${service.borderColor} rounded-[10px] w-[72px] h-[72px] text-center justify-center items-center flex mr-[25px] p-2`}
-                  style={{ backgroundColor: service.bgColor }} // Apply the dynamic background color
+                  style={{ backgroundColor: service.bgColor }} 
                 ></i>
                 <div>
                   <h3 className="text-[22px] font-bold font-nunito mb-[10px]">{service.title}</h3>

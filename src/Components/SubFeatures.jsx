@@ -4,7 +4,7 @@ const SubFeatures = () => {
   return (
     <div className="container mx-auto px-4 min-[800px]:w-[87vw]">
 
-      {/* Features Item 1 */}
+      
       <div className="flex flex-col md:flex-row justify-between mb-8 mx-auto">
 
         <div className="w-full md:w-1/2 mb-4 md:mb-0" data-aos="fade-up" data-aos-delay="100">
@@ -29,7 +29,7 @@ const SubFeatures = () => {
 
       </div>
 
-      {/* Features Item 2 */}
+
       <div className="flex flex-col md:flex-row justify-between mb-8">
 
         <div className="w-full md:w-2/5 p-6 order-2 md:order-1 rounded-lg bg-[#f8fbfc] flex items-start md:items-center" data-aos="fade-up" data-aos-delay="100">

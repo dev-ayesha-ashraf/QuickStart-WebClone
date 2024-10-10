@@ -23,9 +23,9 @@ const Hero = () => {
         <img
           src={bgLight}
           alt="Hero background"
-          className="w-full h-full object-cover opacity-25" // Adjust the opacity
+          className="w-full h-full object-cover opacity-25"
         />
-        {/* Optional: Add a semi-transparent background */}
+       
         <div className="absolute inset-0 bg-white bg-opacity-40"></div>
       </div>
       <div className="container mx-auto text-center relative z-10">

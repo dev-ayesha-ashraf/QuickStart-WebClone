@@ -1,5 +1,5 @@
 import React from 'react';
-import featuresImage from '/features-3.jpg'; // Adjust the path to where your image is located
+import featuresImage from '/features-3.jpg'; 
 
 const MoreFeatures = () => {
   const features = [
@@ -30,7 +30,7 @@ const MoreFeatures = () => {
       <div className="container mx-auto min-[800px]:w-[87vw]">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
 
-          {/* Text and Feature List */}
+       
           <div className="lg:w-1/2 flex flex-col justify-center order-2 lg:order-1 lg:w-[45%]" data-aos="fade-up" data-aos-delay="100">
             <h3 className="text-3xl font-bold mb-4 font-nunito text-[#3e5055]">Enim quis est voluptatibus aliquid consequatur</h3>
             <p className="mb-8">Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi</p>
@@ -48,7 +48,6 @@ const MoreFeatures = () => {
             </div>
           </div>
 
-          {/* Features Image */}
           <div className="lg:w-[42%] order-1 lg:order-2" data-aos="fade-up" data-aos-delay="200">
             <img src={featuresImage} alt="Features" className="w-full h-auto" />
           </div>
