@@ -34,7 +34,7 @@ const Header = () => {
       id="header"
       className={`pt-5 pb-5 flex items-center fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'} lg:justify-center` }
     >
-      <div className="w-full container-fluid xl:container relative flex items-center m-auto justify-around mx-16 sm:mx-0 lg:w-[87vw]">
+      <div className="divOne w-full container-fluid xl:container relative flex items-center m-auto justify-around mx-16 sm:mx-0 lg:w-[87vw]">
         <a href="index.html" className="logo flex items-center mr-auto">
           <img src={logo} className="ml-2 h-9" alt="Logo" />
           <h1 className="font-nunito sitename text-3xl font-bold ml-2 text-[#3d4348]">QuickStart</h1>
@@ -90,7 +90,7 @@ const Header = () => {
           </nav>
 
           <div>
-            <button className="mr-3.5 bg-[#388da8] text-white ml-3.5 px-6 py-2 rounded-[50px] text-sm hover:bg-[#4ea2bc]">
+            <button className="start mr-3.5 bg-[#388da8] text-white ml-3.5 px-6 py-2 rounded-[50px] text-sm hover:bg-[#4ea2bc]">
               Get Started
             </button>
           </div>
