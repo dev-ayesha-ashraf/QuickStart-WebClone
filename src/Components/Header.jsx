@@ -42,9 +42,9 @@ const Header = () => {
         <div className='flex'>
           <nav id="navmenu" className={`navmenu hidden lg:flex ${isNavVisible ? 'flex' : 'hidden'}`}>
             <ul className="flex justify-center align-center text-center">
-              {['Home', 'About', 'Features', 'Services', 'Pricing', 'Contact'].map(item => (
+            {['Home', 'About', 'Features', 'Services', 'Pricing', 'Contact'].map((item, index) => (
                 <li key={item} className="cursor-pointer">
-                  <a href={`#${item.toLowerCase()}`} className="text-[#313336] py-2 px-5 font-normal text-[17px] hover:text-[#388da8]">
+                  <a href={item === 'Home' ? '/#' : `#${item.toLowerCase()}`} className="text-[#313336] py-2 px-5 font-normal text-[17px] hover:text-[#388da8]">
                     {item}
                   </a>
                 </li>
@@ -105,9 +105,9 @@ const Header = () => {
             </button>
             <nav className="flex flex-col">
               <ul className="space-y-4 bg-white h-[85vh] w-[90vw] m-auto flex flex-col py-[10px] rounded-md overflow-y-auto">
-                {['hero', 'About', 'Features', 'Services', 'Pricing', 'Contact'].map(item => (
+              {['home', 'About', 'Features', 'Services', 'Pricing', 'Contact'].map((item, index) => (
                   <li key={item} className="hover:text-[#388da8] cursor-pointer">
-                    <a href={`#${item.toLowerCase()}`} className="text-primary py-2 px-5 font-medium text-[17px]">
+                    <a href={item === 'home' ? '/#' : `#${item.toLowerCase()}`} className="text-primary py-2 px-5 font-medium text-[17px]">
                       {item}
                     </a>
                   </li>

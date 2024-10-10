@@ -8,7 +8,7 @@ import bgLight from "/hero-bg-light.webp"
 import serviceImage from "/hero-services-img.webp"
 
 
-const Hero = () => {
+const Home = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -78,4 +78,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Home;

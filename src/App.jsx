@@ -6,7 +6,7 @@ import FeaturedServices from "./Components/FeaturedServices";
 import Features from "./Components/Features";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header"; 
-import Hero from "./Components/Hero";
+import Home from "./Components/Home";
 import MoreFeatures from "./Components/MoreFeatures";
 import Pricing from "./Components/Pricing";
 import Services from "./Components/Services";
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div>
       <Header />
-      <Hero />
+      <Home />
      <FeaturedServices />
       <AboutSection />
       <ClientsSection />

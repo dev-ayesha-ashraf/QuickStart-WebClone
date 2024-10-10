@@ -299,6 +299,10 @@ color-mix(in srgb, var(--default-color), transparent 85%);
     color: 
 color-mix(in srgb, var(--default-color), transparent 40%);
 }
+html {
+  scroll-behavior: smooth;
+}
+
 @media(max-width:500px){
   header .divOne{
 margin: 0px !important;
@@ -311,5 +315,8 @@ margin: 0px !important;
 @media(max-width:400px){
   .start{
     display: none;
+  }
+  .mobile-nav-toggle{
+    padding-right: 10px !important;
   }
 }
