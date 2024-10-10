@@ -42,7 +42,7 @@ const Header = () => {
       id="header"
       className={`pt-[20px] pb-[20px] header flex items-center fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}
     >
-      <div className="w-full container-fluid xl:container relative flex items-center m-auto justify-around mx-[65px]">
+      <div className="w-full container-fluid xl:container relative flex items-center m-auto justify-around mx-[65px]sm:mx-0">
         <a href="index.html" className="logo flex items-center mr-auto">
           <img src={logo} className="ml-[8px] h-[36px]" alt="Logo" />
           <h1 className="font-nunito sitename text-3xl font-bold ml-2 text-[#3d4348]">QuickStart</h1>

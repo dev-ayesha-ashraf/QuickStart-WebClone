@@ -1,34 +1,37 @@
 import React from 'react';
+import SectionTitle from './SectionTitle';
+
 
 const ContactSection = () => {
   return (
     <section id="contact" className="contact section py-12 bg-gray-100">
       {/* Section Title */}
-      <div className="container mx-auto text-center mb-8">
-        <h2 className="text-3xl font-bold" data-aos="fade-up">Contact</h2>
-        <p className="text-gray-600">Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div>
-      
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <SectionTitle
+            title="Contact"
+            description="Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit"
+          />
+        </div>
+      <div className="container mx-auto min-[800px]:w-[87vw]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           {/* Address Info Item */}
           <div className="info-item flex flex-col justify-center items-center p-4 bg-white rounded shadow-md" data-aos="fade-up" data-aos-delay="200">
             <i className="bi bi-geo-alt text-3xl"></i>
-            <h3 className="text-xl font-semibold">Address</h3>
+            <h3 className="text-xl font-semibold font-nunito my-[10px]">Address</h3>
             <p>A108 Adam Street, New York, NY 535022</p>
           </div>
 
           {/* Call Us Info Item */}
           <div className="info-item flex flex-col justify-center items-center p-4 bg-white rounded shadow-md" data-aos="fade-up" data-aos-delay="300">
             <i className="bi bi-telephone text-3xl"></i>
-            <h3 className="text-xl font-semibold">Call Us</h3>
+            <h3 className="text-xl font-semibold font-nunito my-[10px]">Call Us</h3>
             <p>+1 5589 55488 55</p>
           </div>
 
           {/* Email Us Info Item */}
           <div className="info-item flex flex-col justify-center items-center p-4 bg-white rounded shadow-md" data-aos="fade-up" data-aos-delay="400">
             <i className="bi bi-envelope text-3xl"></i>
-            <h3 className="text-xl font-semibold">Email Us</h3>
+            <h3 className="text-xl font-semibold font-nunito my-[10px]">Email Us</h3>
             <p>info@example.com</p>
           </div>
         </div>
@@ -49,7 +52,7 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div>
             <form action="forms/contact.php" method="post" className="php-email-form" data-aos="fade-up" data-aos-delay="400">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="contact-form grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <input type="text" name="name" className="form-control w-full p-2 border border-gray-300 rounded" placeholder="Your Name" required />
                 </div>
@@ -67,11 +70,8 @@ const ContactSection = () => {
                 </div>
 
                 <div className="col-span-2 text-center">
-                  <div className="loading">Loading</div>
-                  <div className="error-message"></div>
-                  <div className="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit" className="mt-4 px-6 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition">Send Message</button>
+                  <button type="submit" className="mt-4 inline-flex items-center justify-center bg-[#388da8] text-contrast font-heading font-medium text-[16px] tracking-[1px] py-[12px] px-[24px] rounded transition duration-300 hover:bg-[#4ea2bc] text-white">Send Message</button>
                 </div>
               </div>
             </form>

@@ -47,22 +47,28 @@ const FAQSection = () => {
   return (
     <section id="faq" className="faq section py-10 bg-gray-50">
       {/* Section Title */}
-      <SectionTitle title="Frequently Asked Questionss"/>
+      <SectionTitle title="Frequently Asked Questions"/>
       <div className="container mx-auto">
-        <div className="max-w-xl mx-auto">
+        <div className="mx-auto min-[800px]:w-[70vw]">
           <div className="faq-container space-y-4">
             {faqData.map((faq, index) => (
               <div
                 key={index}
-                className={`faq-item border border-gray-200 rounded-lg p-4 transition duration-300 ease-in-out ${activeIndex === index ? 'bg-white' : 'bg-gray-50'}`}
+                className={`faq-item border border-gray-200 rounded-lg p-4 transition duration-300 ease-in-out`}
               >
-                <h3 className="text-lg font-semibold cursor-pointer" onClick={() => handleToggle(index)}>
+                <h3
+                  className={`text-md font-nunito font-semibold cursor-pointer flex justify-between transition-colors duration-300
+                    ${activeIndex === index ? 'text-[#388da8]' : 'text-[#3e5055]'} hover:text-[#388da8]`}
+                  onClick={() => handleToggle(index)}
+                >
                   {faq.question}
+                  <i
+                    className={`faq-toggle bi bi-chevron-right ${activeIndex === index ? 'rotate-90' : ''}`}
+                  ></i>
                 </h3>
-                <div className={`faq-content ${activeIndex === index ? 'block' : 'hidden'}`}>
-                  <p className="text-gray-600">{faq.answer}</p>
+                <div className={`faq-content pt-[10px] ${activeIndex === index ? 'block' : 'hidden'}`}>
+                  <p className="text-gray-900">{faq.answer}</p>
                 </div>
-                <i className={`faq-toggle bi bi-chevron-right ${activeIndex === index ? 'rotate-90' : ''}`}></i>
               </div>
             ))}
           </div>
@@ -73,3 +79,4 @@ const FAQSection = () => {
 };
 
 export default FAQSection;
+

@@ -5,10 +5,13 @@
 :root {
   --accent-color: #388da8;
   --default-color: #3d4348;
+  --heading-color: #3e5055;
 }
-i{
+
+i {
   color: #388da8;
 }
+
 .sitename {
   font-family: "Nunito", sans-serif;
 }
@@ -17,16 +20,25 @@ i{
   font-family: "Inter", sans-serif
 }
 
+.learn i {
+  width: 10px !important;
+  height: 10px !important;
+  margin-left: 10px !important;
+  font-size: 14px !important;
+  display: inline-block !important;
+}
+
 .start,
 .watch,
 .who,
 .italic {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.who{
-  color: 
-  color-mix(in srgb, var(--default-color), transparent 40%);
-  
+
+.who {
+  color:
+    color-mix(in srgb, var(--default-color), transparent 40%);
+
 }
 
 .icon {
@@ -36,11 +48,13 @@ i{
   align-items: center;
   text-align: center;
 }
-.icon:hover{
+
+.icon:hover {
   background-color: #388da8;
 }
+
 .icon:hover i {
-  color: #ffffff; 
+  color: #ffffff;
 }
 
 .icon i {
@@ -56,24 +70,42 @@ i{
   width: 95%;
 }
 
-.service-item .icon {
+.service-item i {
+  font-size: 32px;
+  border-radius: 10px;
+  position: relative;
+  margin-right: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 72px;
   height: 72px;
+  flex-shrink: 0;
 }
+
+.service-item h3 {
+  color:
+    color-mix(in srgb, var(--heading-color), transparent 25%);
+}
+
 .carousel-transition-enter {
   transform: translateX(-100%);
 }
+
 .carousel-transition-enter-active {
   transform: translateX(0);
   transition: transform 0.5s ease-in-out;
 }
+
 .carousel-transition-exit {
   transform: translateX(0);
 }
+
 .carousel-transition-exit-active {
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
 }
+
 /* src/index.css */
 .carousel-card {
   transition: transform 0.5s ease-in-out;
@@ -83,19 +115,22 @@ i{
   transform: scale(1.1);
   font-weight: bold;
 }
-.clients img{
+
+.clients img {
   padding: 20px 40px;
-    max-width: 90%;
-    transition: 0.3s;
-    opacity: 0.5;
-    filter: grayscale(100);
+  max-width: 90%;
+  transition: 0.3s;
+  opacity: 0.5;
+  filter: grayscale(100);
 }
+
 .clients img:hover {
-  opacity: 1; 
-  filter: grayscale(0); 
+  opacity: 1;
+  filter: grayscale(0);
   cursor: pointer;
 }
-#features i{
+
+#features i {
   background-color: #ffffff;
   color: var(--accent-color);
   display: flex;
@@ -110,3 +145,110 @@ i{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.service-item:hover h3,
+.service-item:hover p {
+  color: black;
+}
+
+.pricing-item {
+  background-color:
+    color-mix(in srgb, var(--accent-color), transparent 96%);
+}
+
+.faq-item:active {
+  background-color:
+    color-mix(in srgb, var(--accent-color), transparent 97%);
+  border-color:
+    color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+#contact i {
+  border-radius: 50%;
+  border: 2px dotted color-mix(in srgb, var(--accent-color), transparent 40%);
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form input:active,
+.contact-form textarea:active {
+  border: 1px solid #388da8;
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1px solid #388da8;
+  outline: none;
+}
+
+.social-links a {
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
+  font-size: 16px;
+  color:
+    color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.social-links a i {
+  font-size: 16px;
+  color:
+    color-mix(in srgb, var(--default-color), transparent 30%);
+}
+.social-links a:hover{
+  border: 1px solid #388da8;
+}
+.social-links a:hover i{
+  color: #388da8;
+}
+.footer-links a i{
+  color: 
+  color-mix(in srgb, var(--default-color), transparent 30%);
+      display: inline-block;
+      line-height: 1;
+}
+.newsletter-form{
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding: 6px 8px;
+  position: relative;
+  border-radius: 50px;
+  border: 1px solid 
+color-mix(in srgb, var(--accent-color), transparent 70%);
+  display: flex;
+  background-color: var(--surface-color);
+  transition: 0.3s;
+}
+.newsletter-form .email{
+  border: 0;
+  padding: 4px 10px;
+  width: 100%;
+  background-color: #ffffff;
+  color: var(--default-color);
+}
+.newsletter-form .email:active,
+.newsletter-form .email:focus{
+  outline: none !important;
+}
+.newsletter-form .submit{
+  border: 0;
+    font-size: 16px;
+    padding: 0 20px;
+    margin: -7px -9px -7px 0;
+    background: var(--accent-color);
+    color:#ffffff;
+    transition: 0.3s;
+    border-radius: 50px;
+}
+.copy-right{
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border-top: 1px solid 
+color-mix(in srgb, var(--default-color), transparent 90%);
+
+}
