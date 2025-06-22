@@ -3,12 +3,15 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'glightbox/dist/css/glightbox.css';
 import { BiPlayCircle } from 'react-icons/bi';
-import bgLight from "/hero-bg-light.webp";
-import serviceImage from "/hero-services-img.webp";
 import ReactGA from 'react-ga4';
+
+// Image paths (adjust depending on where your images are located)
+const bgLight = "/hero-bg-light.webp"; // If in public folder
+const serviceImage = "/hero-services-img.webp"; // If in public folder
 
 const Home = () => {
   useEffect(() => {
+    // Initialize AOS animations
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
@@ -17,7 +20,8 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
+    // Send pageview (React GA4 syntax)
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
   }, []);
 
   // Google Analytics event handlers
@@ -74,7 +78,7 @@ const Home = () => {
             <a
               href="#about"
               onClick={handleGetStartedClick}
-              className="px-7 py-2 font-nunito bg-[#388da8] text-[#ffff] font-medium text-[15px] tracking-wider inline-block rounded-full transition-all duration-500 shadow-[0_8px_28px_rgba(0,0,0,0.1)] hover:bg-[#4ea2bc]"
+              className="px-7 py-2 font-nunito bg-[#388da8] text-white font-medium text-[15px] tracking-wider inline-block rounded-full transition-all duration-500 shadow-[0_8px_28px_rgba(0,0,0,0.1)] hover:bg-[#4ea2bc]"
             >
               Get Started
             </a>
@@ -83,6 +87,7 @@ const Home = () => {
               href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
               onClick={handleWatchVideoClick}
               className="glightbox flex items-center text-gray-700 hover:text-primary"
+              target="_blank" rel="noopener noreferrer"
             >
               <BiPlayCircle className="text-[32px] mr-2 text-[#388da8]" />
               <span className="watch text-[#3d4348] text-base font-semibold hover:text-[#388da8]">
@@ -94,7 +99,7 @@ const Home = () => {
           <img
             src={serviceImage}
             alt="Hero services"
-            className="img-fluid w-[600px]"
+            className="img-fluid w-[600px] mt-8"
             data-aos="zoom-out"
             data-aos-delay="300"
           />
