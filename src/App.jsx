@@ -12,6 +12,10 @@ import Pricing from "./Components/Pricing";
 import Services from "./Components/Services";
 import SubFeatures from "./Components/SubFeatures";
 import Testimonials from "./Components/Testimonials";
+import ReactGA from "react-ga4";
+
+const trackingID = 'G-KVCHG6FKM5'
+ReactGA.initialize(trackingID)
 
 export default function App() {
   return (
