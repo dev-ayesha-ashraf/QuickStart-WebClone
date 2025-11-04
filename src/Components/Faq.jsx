@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import SectionTitle from './SectionTitle'; 
+import SectionTitle from './SectionTitle';
 
 const FAQSection = () => {
- 
+
   const faqData = [
     {
       question: "Non consectetur a erat nam at lectus urna duis?",
@@ -17,6 +17,11 @@ const FAQSection = () => {
     {
       question: "Dolor sit amet consectetur adipiscing elit pellentesque?",
       answer: "Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis.",
+      active: false,
+    },
+    {
+      question: "Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?",
+      answer: "Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.",
       active: false,
     },
     {
@@ -45,7 +50,7 @@ const FAQSection = () => {
 
   return (
     <section id="faq" className="faq section bg-gray-50">
-   
+
       <SectionTitle title="Frequently Asked Questions" />
       <div className="container mx-auto">
         <div className="mx-auto min-[800px]:w-[70vw]">
