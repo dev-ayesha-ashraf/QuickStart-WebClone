@@ -25,11 +25,6 @@ const FAQSection = () => {
       active: false,
     },
     {
-      question: "Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?",
-      answer: "Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.",
-      active: false,
-    },
-    {
       question: "Tempus quam pellentesque nec nam aliquam sem et tortor?",
       answer: "Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.",
       active: false,
