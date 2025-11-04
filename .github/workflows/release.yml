@@ -24,6 +24,7 @@ jobs:
             echo "BUMP=minor" >> $GITHUB_ENV
           else
             echo "BUMP=patch" >> $GITHUB_ENV
+          fi
 
       - name: Bump version in package.json
         run: npm version $BUMP --no-git-tag-version
