@@ -26,11 +26,6 @@ const FAQSection = () => {
     },
 
     {
-      question: "Tempus quam pellentesque nec nam aliquam sem et tortor?",
-      answer: "Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.",
-      active: false,
-    },
-    {
       question: "Perspiciatis quod quo quos nulla quo illum ullam?",
       answer: "Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi. Distinctio ipsam dolore et.",
       active: false,
