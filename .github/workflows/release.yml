@@ -1,21 +1,37 @@
-- name: Determine bump type from commit
-  id: bump
-  run: |
-    LAST_COMMIT=$(git log -1 --pretty=%B)
-    if [[ "$LAST_COMMIT" == *"BREAKING CHANGE"* ]]; then
-      echo "BUMP=major" >> $GITHUB_ENV
-    elif [[ "$LAST_COMMIT" == feat:* ]]; then
-      echo "BUMP=minor" >> $GITHUB_ENV
-    else
-      echo "BUMP=patch" >> $GITHUB_ENV
+name: Version Bump Frontend
 
-- name: Bump version in package.json
-  run: npm version $BUMP --no-git-tag-version
+on:
+  push:
+    branches:
+      - main
 
-- name: Commit and push version bump
-  run: |
-    git config user.name "github-actions[bot]"
-    git config user.email "github-actions[bot]@users.noreply.github.com"
-    git add package.json
-    git commit -m "Bump version to $(jq -r .version package.json)"
-    git push origin HEAD:main
+jobs:
+  version_bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Determine bump type from commit
+        id: bump
+        run: |
+          LAST_COMMIT=$(git log -1 --pretty=%B)
+          if [[ "$LAST_COMMIT" == *"BREAKING CHANGE"* ]]; then
+            echo "BUMP=major" >> $GITHUB_ENV
+          elif [[ "$LAST_COMMIT" == feat:* ]]; then
+            echo "BUMP=minor" >> $GITHUB_ENV
+          else
+            echo "BUMP=patch" >> $GITHUB_ENV
+
+      - name: Bump version in package.json
+        run: npm version $BUMP --no-git-tag-version
+
+      - name: Commit and push version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json
+          git commit -m "Bump version to $(jq -r .version package.json)"
+          git push origin HEAD:main
