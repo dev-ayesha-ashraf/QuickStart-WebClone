@@ -1,33 +1,21 @@
-name: Version and Release
+- name: Determine bump type from commit
+  id: bump
+  run: |
+    LAST_COMMIT=$(git log -1 --pretty=%B)
+    if [[ "$LAST_COMMIT" == *"BREAKING CHANGE"* ]]; then
+      echo "BUMP=major" >> $GITHUB_ENV
+    elif [[ "$LAST_COMMIT" == feat:* ]]; then
+      echo "BUMP=minor" >> $GITHUB_ENV
+    else
+      echo "BUMP=patch" >> $GITHUB_ENV
 
-on:
-  push:
-    branches:
-      - main
+- name: Bump version in package.json
+  run: npm version $BUMP --no-git-tag-version
 
-jobs:
-  release:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run build
-        run: npm run build
-
-      - name: Create Release with Semantic Versioning
-        uses: cycjimmy/semantic-release-action@v4
-        with:
-          semantic_version: 19
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+- name: Commit and push version bump
+  run: |
+    git config user.name "github-actions[bot]"
+    git config user.email "github-actions[bot]@users.noreply.github.com"
+    git add package.json
+    git commit -m "Bump version to $(jq -r .version package.json)"
+    git push origin HEAD:main
